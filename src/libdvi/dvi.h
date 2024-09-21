@@ -1,6 +1,10 @@
 #ifndef _DVI_H
 #define _DVI_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define N_TMDS_LANES 3
 #define TMDS_SYNC_LANE 0 // blue!
 
@@ -48,11 +52,6 @@ struct dvi_inst {
 
 };
 
-#if defined(__cplusplus)
-extern "C"
-{
-#endif
-
 // Set up data structures and hardware for DVI.
 void dvi_init(struct dvi_inst *inst, uint spinlock_tmds_queue, uint spinlock_colour_queue);
 
@@ -74,7 +73,7 @@ void dvi_scanbuf_main_16bpp(struct dvi_inst *inst);
 void dvi_framebuf_main_8bpp(struct dvi_inst *inst);
 void dvi_framebuf_main_16bpp(struct dvi_inst *inst);
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 }
 #endif
 
